@@ -16,3 +16,4 @@ export default function Product({ id, name, price, image }) {
     </div>
   );
 }
+
