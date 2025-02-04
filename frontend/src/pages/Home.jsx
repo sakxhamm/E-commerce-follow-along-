@@ -1,8 +1,7 @@
-Home.jsx
 
 import  { useState, useEffect } from "react";
-import Product from "../component/auth/Product";
-import { productData } from "../static/data";
+import Product from "../component/auth/Product.jsx";
+import { productData } from "../static/data.js";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -25,3 +24,4 @@ export default function Home() {
     </>
   );
 }
+ 
