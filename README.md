@@ -74,3 +74,4 @@ we added the functionality to upload a file during the sign-up process.
 This feature allows users to attach documents or images, enhancing the sign-up experience and making the application more versatile. 
 The implementation included integrating file upload functionality into the backend, ensuring secure handling and storage of uploaded files. 
 This milestone marks a significant step in improving user interactivity and expanding the application's capabilities.
+..
