@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const productSchema = new mongoose.Schema(
   {
     name: {
@@ -38,9 +39,11 @@ const productSchema = new mongoose.Schema(
       type: Date,
       default: Date.now, // Automatically set the creation date
     },
+    
   },
   {
     timestamps: true,
   }
 );
+
 module.exports = mongoose.model("Product", productSchema);
