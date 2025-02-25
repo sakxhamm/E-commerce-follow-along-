@@ -253,6 +253,7 @@ router.get('/cartproducts', async (req, res) => {
 });
 
 module.exports = router;
+
 router.put('/cartproduct/quantity', async (req, res) => {
   const { email, productId, quantity } = req.body;
   console.log("Updating cart product quantity");
