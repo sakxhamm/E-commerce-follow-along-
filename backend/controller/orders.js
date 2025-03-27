@@ -34,6 +34,8 @@ router.post('/place-order', async (req, res) => {
             return order.save();
         });
         const orders = await Promise.all(orderPromises);
+        user.cart = [];
+        await user.save();
         
         res.status(201).json({ message: 'Orders placed and cart cleared successfully.', orders });
     } catch (error) {
@@ -42,7 +44,6 @@ router.post('/place-order', async (req, res) => {
     }
 });
 
-module.exports = router;
 router.get('/my-orders', async (req, res) => {
     try {
         const { email } = req.query;
@@ -67,6 +68,7 @@ router.get('/my-orders', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
 router.get('/myorders', async (req, res) => {
     try {
         // Retrieve email from query parameters
@@ -89,6 +91,7 @@ router.get('/myorders', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
 router.patch('/cancel-order/:orderId', async (req, res) => {
     try {
         const { orderId } = req.params;
