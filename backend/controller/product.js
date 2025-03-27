@@ -98,6 +98,7 @@ router.get('/my-products', async (req, res) => {
   const { email } = req.query;
   try {
       const products = await Product.find({ email });
+      console.log("Product: ", products);
       const productsWithFullImageUrl = products.map(product => {
           if (product.images && product.images.length > 0) {
               product.images = product.images.map(imagePath => {
@@ -119,6 +120,7 @@ router.get('/product/:id', async (req, res) => {
   const { id } = req.params;
   try {
       const product = await Product.findById(id);
+      console.log("Product: ", product);
       if (!product) {
           return res.status(404).json({ error: 'Product not found.' });
       }
@@ -251,8 +253,6 @@ router.get('/cartproducts', async (req, res) => {
       res.status(500).json({ error: 'Server Error' });
   }
 });
-
-module.exports = router;
 
 router.put('/cartproduct/quantity', async (req, res) => {
   const { email, productId, quantity } = req.body;
