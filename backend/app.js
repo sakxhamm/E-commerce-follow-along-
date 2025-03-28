@@ -8,10 +8,8 @@ const product= require('./controller/product')
 const path=require('path')
 const orders = require('./controller/orders');
 
-
-
 const corsOptions = {
-    origin: 'http://localhost:5173', // Allow only your frontend origin
+    origin: ['http://localhost:5173', 'http://localhost:5178' ],// Allow only your frontend origin
     credentials: true, // Allow cookies and credentials
   };
 
@@ -37,5 +35,12 @@ const user = require("./controller/user");
 app.use("/api/v2/user", user);
 app.use("/api/v2/product", product);
 app.use("/api/v2/orders", orders);
+app.use(express.json()); // Ensure JSON requests are processed
+
+app.post("/api/v2/user/create-user", (req, res) => {
+    res.status(201).json({ message: "User created successfully!" });
+});
+
+
 app.use(ErrorHandler);
 module.exports= app;
